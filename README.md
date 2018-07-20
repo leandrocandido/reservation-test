@@ -41,7 +41,7 @@ For the correct development of the test, it is necessary to take into account th
 - Create an account at **GitLab**
 - Create a private project of  **GitLab**  (free)
 - Fork the repository and work on the solution `Ryanair.Reservation.sln`.
-- Grant permissions and access to  **@dotRezMadTravelLabs**  to make the pertinent observations.
+- Grant permissions and access to  **@ryanairLabs**  to make the pertinent observations.
 - We want to see the evolution of your code, so commits are welcome.
 - Please note that the application will be executed on other machines. Make sure you do not have local references.
 
