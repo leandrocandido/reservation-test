@@ -2,8 +2,6 @@
 
 This endpoint will be used to search for available flights.
 
-**This endpoint is already implemented. If you feel that it should be refactored to attend the specifications feel free to update whatever you think it should be different but keep in mind that the controller´s name and the payload should not be changed**
-
 ## Request contract url
 
 >/Flight?passengers=3&origin=DUBLIN&destination=LONDON&dateOut=2017-05-08&dateIn=2017-05-10&roundTrip=true
