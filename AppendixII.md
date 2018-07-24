@@ -2,9 +2,6 @@
 
 This endpoint allows to make a reservation into the system providing, among other parameters, the keys received with the previous call.
 
-**This endpoint is already implemented. If you feel that it should be refactored to attend the specifications feel free to update whatever you think it should be different but keep in mind that the controller´s name and the payload should not be changed**
-
-
 ## Request contract in JSON format
 
 ```json
