@@ -1,7 +1,7 @@
 ## Ryanair Reservation Test - TravelLabs
 
 ## Intro
-The airline ETLBLUE is creating a brand new API to expose its reservation mechanism to other inhouse systems as well as potentially interested third parties. 
+The airline **EtlBlue** is creating a brand new API to expose its reservation mechanism to other inhouse systems as well as potentially interested third parties. 
 
 To allow this a successful candidate must implement an API with the following features:
 
@@ -18,7 +18,7 @@ To allow this a successful candidate must implement an API with the following fe
     * The API should be able to accept and return JSON and XML payloads.
  3. Every endpoint should return appropriate error messages when the operation cannot be achieved for some reason. 
  4. For storage, use in-memory collections to avoid external dependencies. 
- 5. For the initial data state use the provided json (PATH TO JSON FILE).
+ 5. For the initial data state, use the [provided json](InitialState.json).
  6. Implement appropriate test cases.
 
 ## Bonus
@@ -37,7 +37,7 @@ You're allowed to add any particular framework you want and keep in mind that we
 
 For the correct development of the test, it is necessary to take into account the following points:
 
-- Create an account at **GitLab** (free)
+- Create an account at **GitLab** (it's free)
 - Fork the repository and work on the solution `Ryanair.Reservation.sln`.
 - We want to see the evolution of your code, so commits are welcome.
 - Please note that the application will be executed on other machines, so don't keep local references.
