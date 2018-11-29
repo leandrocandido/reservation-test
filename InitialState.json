@@ -16,5 +16,35 @@
     "key": "Flight00103",
     "origin": "LONDON",
     "destination": "DUBLIN"
+  },
+  {
+    "time": "2017-05-09T11:30:00.000Z",
+    "key": "Flight10001",
+    "origin": "LONDON",
+    "destination": "DUBLIN"
+  },
+  {
+    "time": "2017-05-09T15:00:00.000Z",
+    "key": "Flight10052",
+    "origin": "LONDON",
+    "destination": "DUBLIN"
+  },
+  {
+    "time": "2017-05-11T12:30:00.000Z",
+    "key": "Flight10103",
+    "origin": "LONDON",
+    "destination": "DUBLIN"
+  },
+  {
+    "time": "2017-05-13T10:30:00.000Z",
+    "key": "Flight00021",
+    "origin": "DUBLIN",
+    "destination": "ROME"
+  },
+  {
+    "time": "2017-05-13T180:30:00.000Z",
+    "key": "Flight00021",
+    "origin": "ROME",
+    "destination": "DUBLIN"
   }
 ]
