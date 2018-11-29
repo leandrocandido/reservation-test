@@ -1,0 +1,20 @@
+[
+  {
+    "time": "2017-05-08T06:30:00.000Z",
+    "key": "Flight00001",
+    "origin": "DUBLIN",
+    "destination": "LONDON"
+  },
+  {
+    "time": "2017-05-08T12:00:00.000Z",
+    "key": "Flight00052",
+    "origin": "DUBLIN",
+    "destination": "LONDON"
+  },
+  {
+    "time": "2017-05-10T09:30:00.000Z",
+    "key": "Flight00103",
+    "origin": "LONDON",
+    "destination": "DUBLIN"
+  }
+]
