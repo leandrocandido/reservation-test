@@ -41,7 +41,7 @@ The meaning of the parameters is as follows:
 ]
 ```
 
-The full json file is included in the solution (PATH)
+The [full json file](InitialState.json) is included in the solution.
 
 The result is an enumeration with the flights found. It could contain 0 or more result. Every flight will have the date and time, origin, destination and a key to identify it in the POST /Reservation call.
 

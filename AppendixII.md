@@ -2,7 +2,7 @@
 
 This endpoint allows to make a reservation into the system, providing among other parameters the keys received from the previous calls.
 
-Note: The flight keys from GET and POST should match.
+`Note: The flight keys from GET and POST should match.`
 
 ## Request contract in JSON format
 
