@@ -14,6 +14,7 @@ The meaning of the parameters is as follows:
 - DateOut: date of the outbound flight.
 - DateIn: date of the inbound flight (optional for one way flight searches).
 - RoundTrip: boolean indicating if we want one way or round trip results.
+- Don't change the parameter names (it will be used by internal integration tests)
 
 ## Response contract in JSON format
 
@@ -40,7 +41,7 @@ The meaning of the parameters is as follows:
 ]
 ```
 
-The result is an array with the flights found. It could contain 0 or more result. Every flight will have the date and time, origin, destination and a key to identify it in the POST /Reservation call.
+The result is an enumeration with the flights found. It could contain 0 or more result. Every flight will have the date and time, origin, destination and a key to identify it in the POST /Reservation call.
 
 
 

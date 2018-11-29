@@ -46,3 +46,4 @@ This endpoint returns an existing reservation using the reservation number as pa
 }
 ```
 
+The reservation number should be any unique sequence of 3 letters and 3 numbers.

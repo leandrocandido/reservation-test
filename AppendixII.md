@@ -2,6 +2,8 @@
 
 This endpoint allows to make a reservation into the system providing, among other parameters, the keys received with the previous call.
 
+Note: The flight keys from GET and POST should match.
+
 ## Request contract in JSON format
 
 ```json
@@ -42,7 +44,9 @@ This endpoint allows to make a reservation into the system providing, among othe
 }
 ```
 
-This request contains the email and credit card to make the reservation under, and also a list of flights that can contain one (for one way flights) or two (for roundtrip flights) elements. Every flight contains the key of the flight obtained with the GET /Flight call and a list of passengers. For every passenger we need its name, number of bags and selected seat.
+This request contains the email and credit card to make the reservation and also a list of flights that can contain one (for one way flights) or two (for roundtrip flights) elements. 
+
+Every flight contains the flight key obtained with the GET /Flight call and a list of passengers. For every passenger we need its name, number of bags and selected seat.
 
 ## Response contract in JSON format
 

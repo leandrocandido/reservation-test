@@ -18,7 +18,11 @@ To allow this a successful candidate must implement a simple reservation API wit
     * The API should be able to accept and return JSON and XML payloads.
  3. Every endpoint should return appropriate error messages when the operation cannot be achieved for some reason. 
  4. For storage, use in-memory collections to avoid external dependencies. Use some kind of initialization to set the data into an initial state before accepting any request.
- 5. Implement appropriate test cases.
+ 5. Make use of logging.
+ 6. Implement appropriate test cases.
+
+## Bonus
+1. Make use of some mapping framework
 
 ## What we are looking for?
 You're allowed to add any particular framework you want and keep in mind that we are looking for clean and maintainable code which follows good programming principles.
@@ -29,11 +33,6 @@ You're allowed to add any particular framework you want and keep in mind that we
     - It's important to follow the requirements
     - Perform different commits evidencing the progress.
 
-## Bonus
-
-Included with this solution is a separate project called `Ryanair.Reservation.Bonus`. We want you to do the code review of FlightList. 
-What's wrong and how might it be fixed? Perform any changes you consider should be made and add if you have some, add comments to README_Candidate.md file.
-
 ## Submission
 
 For the correct development of the test, it is necessary to take into account the following points:
@@ -41,13 +40,10 @@ For the correct development of the test, it is necessary to take into account th
 - Create an account at **GitLab**
 - Create a private project of  **GitLab**  (free)
 - Fork the repository and work on the solution `Ryanair.Reservation.sln`.
-- Grant permissions and access to  **@ryanairLabs**  to make the pertinent observations.
 - We want to see the evolution of your code, so commits are welcome.
-- Please note that the application will be executed on other machines. Make sure you do not have local references.
+- Please note that the application will be executed on other machines. 
 
-The solution must include a README_Candidate.md file as a sort of guide with a sequence of calls to accomplish a successful reservation that could be used during the review process. Any other consideration or explanation that the candidate wants to highlight about the design/implementation process should be also included in this file.
-
-During development the candidate may find some ambiguities or missing specs and that is fine. Feel free to take the appropriate decisions and provide some explanations about them (README_Candidate.md).
+The solution include a README_Candidate.md file to be used for any other consideration or explanation that the candidate wants to highlight about the design/implementation process.
 
 ---
 
