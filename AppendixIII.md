@@ -14,7 +14,7 @@ This endpoint returns an existing reservation using the reservation number as pa
   "email": "contact@contact.com",
   "flights": [
     {
-      "flight": "Flight00052",
+      "key": "Flight00052",
       "passengers": [
         {
           "name": "Robert Plant",
@@ -29,7 +29,7 @@ This endpoint returns an existing reservation using the reservation number as pa
       ]
     },
     {
-      "flight": "Flight00103",
+      "key": "Flight00103",
       "passengers": [
         {
           "name": "Robert Plant",
@@ -46,4 +46,4 @@ This endpoint returns an existing reservation using the reservation number as pa
 }
 ```
 
-The reservation number should be any unique sequence of 3 letters and 3 numbers.
+The reservation number should be an unique sequence of 3 letters and 3 numbers.

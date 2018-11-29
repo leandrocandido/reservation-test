@@ -1,6 +1,6 @@
 ## Appendix II – POST /Reservation
 
-This endpoint allows to make a reservation into the system providing, among other parameters, the keys received with the previous call.
+This endpoint allows to make a reservation into the system, providing among other parameters the keys received from the previous calls.
 
 Note: The flight keys from GET and POST should match.
 
@@ -12,7 +12,7 @@ Note: The flight keys from GET and POST should match.
   "creditCard": "0123456789012345",
   "flights": [
     {
-      "flight": "Flight00052",
+      "key": "Flight00052",
       "passengers": [
         {
           "name": "Robert Plant",
@@ -27,7 +27,7 @@ Note: The flight keys from GET and POST should match.
       ]
     },
     {
-      "flight": "Flight00103",
+      "key": "Flight00103",
       "passengers": [
         {
           "name": "Robert Plant",
@@ -55,7 +55,9 @@ Every flight contains the flight key obtained with the GET /Flight call and a li
  "reservationNumber": "ABC123"
 }
 ```
+ 
+The response just contains the reservation number assigned during the booking process. 
 
-The response just contains the reservation number assigned during the booking process.
+The reservation number should be an unique sequence of 3 letters and 3 numbers.
 
 

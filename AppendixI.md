@@ -9,12 +9,12 @@ This endpoint will be used to search for available flights.
 The meaning of the parameters is as follows:
 
 - Passengers: number of passengers to include in the reservation.
-- Origin: origin of the flight (assume just DUBLIN, LONDON and ROME).
-- Destination: destination of the flight. Same options than origin.
+- Origin: origin of the flight.
+- Destination: destination of the flight.
 - DateOut: date of the outbound flight.
 - DateIn: date of the inbound flight (optional for one way flight searches).
 - RoundTrip: boolean indicating if we want one way or round trip results.
-- Don't change the parameter names (it will be used by internal integration tests)
+- Don't change the url parameter names (it will be used by internal integration tests)
 
 ## Response contract in JSON format
 
@@ -40,6 +40,8 @@ The meaning of the parameters is as follows:
   }
 ]
 ```
+
+The full json file is included in the solution (PATH)
 
 The result is an enumeration with the flights found. It could contain 0 or more result. Every flight will have the date and time, origin, destination and a key to identify it in the POST /Reservation call.
 
