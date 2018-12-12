@@ -6,7 +6,6 @@ stages:
 
 variables:
   project: "Ryanair.Reservation"
-  project_path: "/builds/ryanairLabs/reservation-test"
 
 before_script:
   - "dotnet restore"
@@ -14,15 +13,17 @@ before_script:
 build:
   stage: build
   variables:
-    build_path: "$project_path/src/$project"
+    build_path: "src/$project"
   script:
+    - "pwd"
     - "cd $build_path"
     - "dotnet build"
 
 test:
   stage: test
   variables:
-    test_path: "$project_path/test/$project.Tests"
+    test_path: "test/$project.Tests"
   script:
+    - "pwd"
     - "cd $test_path"
     - "dotnet test"
