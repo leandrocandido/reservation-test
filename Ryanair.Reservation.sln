@@ -18,6 +18,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ryanair.Reservation", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ryanair.Reservation.Tests", "test\Ryanair.Reservation.Tests\Ryanair.Reservation.Tests.csproj", "{9D1BE687-2068-46C0-8B27-2995825AD763}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryanair.Reservation.Domain", "src\Ryanair.Reservation.Domain\Ryanair.Reservation.Domain.csproj", "{C7504D70-8192-442A-A00E-35501182EE02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ryanair.Reservation.Infrastructure", "src\Ryanair.Reservation.Infrastructure\Ryanair.Reservation.Infrastructure.csproj", "{2AF8D96E-EED5-4781-823F-E76809FB610E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +36,14 @@ Global
 		{9D1BE687-2068-46C0-8B27-2995825AD763}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D1BE687-2068-46C0-8B27-2995825AD763}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D1BE687-2068-46C0-8B27-2995825AD763}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7504D70-8192-442A-A00E-35501182EE02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7504D70-8192-442A-A00E-35501182EE02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7504D70-8192-442A-A00E-35501182EE02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7504D70-8192-442A-A00E-35501182EE02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AF8D96E-EED5-4781-823F-E76809FB610E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AF8D96E-EED5-4781-823F-E76809FB610E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AF8D96E-EED5-4781-823F-E76809FB610E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AF8D96E-EED5-4781-823F-E76809FB610E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
