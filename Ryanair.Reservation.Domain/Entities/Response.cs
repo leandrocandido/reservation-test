@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace Ryanair.Reservation.Domain.Entities
 {
-    public class Response
-    {
-        public object Content { get; set; }
-        public string Error { get; set; }
-        public IEnumerable<DomainValidationMessage> DomainValidationMessages { get; set; }
-    }
+    //public class Response
+    //{
+    //    public object Content { get; set; }
+    //    public string Error { get; set; }
+    //    public IEnumerable<DomainValidationMessage> DomainValidationMessages { get; set; }
+    //}
 }

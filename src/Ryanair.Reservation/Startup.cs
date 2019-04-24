@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,18 +28,33 @@ namespace Ryanair.Reservation
         {
 
 
-            services.AddMvc(config =>
-            {
-                // Add XML Content Negotiation
-                config.RespectBrowserAcceptHeader = true;
-                config.InputFormatters.Add(new XmlSerializerInputFormatter());
-                config.OutputFormatters.Add(new XmlSerializerOutputFormatter());
-            })
-            .AddXmlSerializerFormatters();
+            //services.AddMvc(config =>
+            //{
+            //    // Add XML Content Negotiation
+            //    config.RespectBrowserAcceptHeader = true;
+            //    config.ReturnHttpNotAcceptable = true;
+
+            //    config.InputFormatters.Add(new XmlSerializerInputFormatter());
+            //    config.OutputFormatters.Add(new XmlSerializerOutputFormatter());
+            //});           
+
+            //services.AddMvc(config =>
+            //{
+            //    // Add XML Content Negotiation
+            //    config.RespectBrowserAcceptHeader = true;
+            //    config.ReturnHttpNotAcceptable = true;                                
+            //}).AddXmlSerializerFormatters()
+            //  .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             //services.AddMvc()
             //    .AddXmlSerializerFormatters()
             //    .AddXmlDataContractSerializerFormatters();
+
+            services.AddMvc(options =>
+            {
+                options.ReturnHttpNotAcceptable = true;
+                options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
+            });
 
             services.AddScoped<IMediator, Mediator>();
             services.AddTransient<SingleInstanceFactory>(sp => sp.GetService);

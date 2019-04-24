@@ -1,9 +1,12 @@
-﻿namespace Ryanair.Reservation.Domain.Validation
+﻿using System.Runtime.Serialization;
+
+namespace Ryanair.Reservation.Domain.Validation
 {
+    [DataContract]
     public class DomainValidationMessage
-    {
-        public ValidationLevel Level { get; set; }
-        public string Property { get; set; }
+    {        
+        public ValidationLevel Level { get; set; }        
+        public string Property { get; set; }        
         public string Message { get; set; }
 
         public DomainValidationMessage(ValidationLevel level, string message, params object[] messageParams)
