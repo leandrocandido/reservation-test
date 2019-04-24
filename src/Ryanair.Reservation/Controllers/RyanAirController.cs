@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Ryanair.Reservation.Application.Mediator.Queries.Flight;
+using Ryanair.Reservation.Infrastructure.Utils;
 using System;
 using System.Linq;
 
@@ -61,6 +62,8 @@ namespace Ryanair.Reservation.Controllers
         public IActionResult GetReservation()
         {
             SendData data = new SendData() { Nome = "nome yesye", Idade = 745 };
+
+            var reservation = RandomGenerator.RandomReservationNumber(100, 999, 3);
 
             return Ok(data);
         }
