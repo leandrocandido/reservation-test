@@ -1,7 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Ryanair.Reservation.Application.Mediator.Queries.Flight;
+using System;
 using System.Linq;
 
 namespace Ryanair.Reservation.Controllers
@@ -19,15 +21,31 @@ namespace Ryanair.Reservation.Controllers
     public class RyanairController : Controller
     {
         private readonly IMediator _mediator;
+        private readonly ILogger _logger;
 
-        public RyanairController(IMediator mediator)
+        public RyanairController(IMediator mediator, ILogger<RyanairController> logger)
         {
             this._mediator = mediator;
+            this._logger = logger;
+        }
+
+        [HttpGet("FlightAll")]
+        public IActionResult GetFlightAll()
+        {
+            _logger.LogInformation("Getting all flights");
+            var query = new GetAllFlightsQuery();
+
+            var result = _mediator.Send(query).Result;
+
+            if (result.DomainValidationMessages?.Count() > 0)
+                return StatusCode(StatusCodes.Status422UnprocessableEntity, result);
+
+            return Ok(result);
         }
 
 
         [HttpGet("Flight")]
-        public IActionResult GetFlight()
+        public IActionResult GetFlight(int passengers , string origin , string destination , DateTime dateOut , DateTime dateIn , bool roundTrip)
         {
             var query = new GetAllFlightsQuery();
 
