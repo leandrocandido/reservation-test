@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using Ryanair.Reservation.Domain.Entities;
+using Ryanair.Reservation.Domain.Responses;
 
 namespace Ryanair.Reservation.Application.Mediator
 {

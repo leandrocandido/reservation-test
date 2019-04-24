@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Ryanair.Reservation.Application.DTO;
+using Ryanair.Reservation.Domain.DTO;
 using Ryanair.Reservation.Domain.Entities;
 
 namespace Ryanair.Reservation.Application.Profiles
