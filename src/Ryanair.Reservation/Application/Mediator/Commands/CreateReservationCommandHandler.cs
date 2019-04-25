@@ -16,11 +16,7 @@ namespace Ryanair.Reservation.Application.Mediator.Commands
         private readonly IReservationRepository _reservationRepository;
         private readonly IMapper _mapper;        
 
-        public CreateReservationCommandHandler(           
-            IFlightRepository flightRepository,            
-            IReservationRepository reservationRepository,
-            IMapper mapper            
-        )
+        public CreateReservationCommandHandler(IFlightRepository flightRepository,IReservationRepository reservationRepository, IMapper mapper)
         {           
             _flightRepository = flightRepository;            
             _reservationRepository = reservationRepository;

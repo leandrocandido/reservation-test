@@ -10,5 +10,6 @@ namespace Ryanair.Reservation.Domain.DataAccess.Repositories
         bool ReservationNumberExists(string reservationNumber);
         void Save(ReservationEntity entity);
         void Save(List<ReservationEntity> entities);
+        List<ReservationEntity> GetByReservationNumber(string reservationNumber);
     }
 }

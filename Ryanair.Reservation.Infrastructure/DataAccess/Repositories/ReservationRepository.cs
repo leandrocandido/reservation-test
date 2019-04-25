@@ -21,6 +21,13 @@ namespace Ryanair.Reservation.Infrastructure.DataAccess.Repositories
                 .Sum(x => x.Bags);
         }
 
+        public List<ReservationEntity> GetByReservationNumber(string reservationNumber)
+        {
+            var reservation = ReservationDataTable.GetInstance();
+            return reservation.ReservationInformation
+                .Where(x => x.ReservationNumber == reservationNumber).ToList();
+        }
+
         public List<string> GetReservedSeatsPerFlight(string flightkey)
         {
             var reservation = ReservationDataTable.GetInstance();

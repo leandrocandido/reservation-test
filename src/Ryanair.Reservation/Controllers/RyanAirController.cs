@@ -4,10 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Ryanair.Reservation.Application.Mediator.Commands;
 using Ryanair.Reservation.Application.Mediator.Queries.Flight;
-using Ryanair.Reservation.Domain.Commands;
-using Ryanair.Reservation.Domain.DTO;
+using Ryanair.Reservation.Application.Mediator.Queries.Reservation;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Ryanair.Reservation.Controllers
@@ -53,57 +51,20 @@ namespace Ryanair.Reservation.Controllers
             return Ok(result);
         }
 
-        [HttpGet("Reservation")]
-        public IActionResult GetReservation()
+        [HttpGet("Reservation/{reservationCode}")]
+        public IActionResult GetReservation(string reservationCode)
         {
-            //SendData data = new SendData() { Nome = "nome yesye", Idade = 745 };
-            BookingDto data = new BookingDto()
-            {
-                Email = "contact@contact.com",
-                ReservationNumber = "0123456789012345",
-                Flights = new List<BookFlightDto>()
-                {
-                    new BookFlightDto
-                    {
-                        Key = "Flight00052",
-                        Passengers = new List<PassengersDto>()
-                        {
-                            new PassengersDto
-                            {
-                                Name = "Robert Plant",
-                                Bags = 3,
-                                Seat = "27"
-                            },
-                            new PassengersDto
-                            {
-                                Name = "Ozzy Osbourne",
-                                Bags = 0,
-                                Seat = "28"
-                            }
-                        }
-                    },
-                    new BookFlightDto
-                    {
-                        Key = "Flight00103",
-                        Passengers = new List<PassengersDto>()
-                        {
-                            new PassengersDto
-                            {
-                                Name = "Robert Plant",
-                                Bags = 2,
-                                Seat = "41"
-                            },
-                            new PassengersDto
-                            {
-                                Name = "Ozzy Osbourne",                                
-                                Seat = "40"
-                            }
-                        }
-                    }
-                }
-            };
-            
-            return Ok(data);
+            var query = new GetReservationQuery() { ReservationNumber = reservationCode };
+
+            if ( string.IsNullOrEmpty(query.ReservationNumber))
+                return BadRequest();
+
+            var result = _mediator.Send(query).Result;
+
+            if (result.DomainValidationMessages?.Count() > 0)
+                return StatusCode(StatusCodes.Status422UnprocessableEntity, result);
+                       
+            return Ok(result);
         }
 
         [HttpPost("Reservation")]
@@ -115,12 +76,7 @@ namespace Ryanair.Reservation.Controllers
             var result = _mediator.Send(command).Result;
 
             if (result?.DomainValidationMessages?.Count() > 0 || !string.IsNullOrEmpty(result?.Error))
-                return StatusCode(422, result);
-
-            //check if content is valid?
-
-            //if (string.IsNullOrEmpty(result?.Error))
-            //    return NotFound();
+                return StatusCode(422, result);          
 
             return Ok(result);
         }
