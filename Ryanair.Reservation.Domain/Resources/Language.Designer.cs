@@ -77,5 +77,23 @@ namespace Ryanair.Reservation.Domain.Resources {
                 return ResourceManager.GetString("EmailNullEmpty", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Flight {0} does not exists..
+        /// </summary>
+        internal static string FlightNotExists {
+            get {
+                return ResourceManager.GetString("FlightNotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flight key could not be empty..
+        /// </summary>
+        internal static string FlightNullEmpty {
+            get {
+                return ResourceManager.GetString("FlightNullEmpty", resourceCulture);
+            }
+        }
     }
 }

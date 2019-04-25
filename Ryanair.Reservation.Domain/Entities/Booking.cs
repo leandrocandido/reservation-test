@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Ryanair.Reservation.Domain.Entities
 {
-    public class Booking
+    public class Booking : EntityDomainValidation
     {
         private readonly IBookingRepository _bookingRepository;
         private readonly IBookFlightRepository _bookFlightRepository;
@@ -30,39 +30,32 @@ namespace Ryanair.Reservation.Domain.Entities
             _bookFlightRepository = bookFlightRepository;
             _flightRepository = flightRepository;
             _passengeringRepository = passengeringRepository;
-            this.ProcessBook();
+            this.ProcessDomainEntity();
+        }       
+
+        protected override void DomainValidation(List<DomainValidationMessage> messages)
+        {
+            if (string.IsNullOrEmpty(this._command.Email))
+                messages.Add(new DomainValidationMessage { Level = ValidationLevel.Error, Message = Language.EmailNullEmpty, Property = nameof(this.Email) });
+
+            if (string.IsNullOrEmpty(this._command.CreditCard))
+                messages.Add(new DomainValidationMessage { Level = ValidationLevel.Error, Message = Language.CreditCardNullEmprty, Property = nameof(this.CreditCard) });
         }
 
-        public void ProcessBook()
+        protected override void AfterValidation()
         {
-            var msgs = this.Validate(_command);
-
-            if (msgs.Count > 0)
-                throw new DomainValidationException(msgs);
-
             this.Email = _command.Email;
             this.CreditCard = _command.CreditCard;
-            this.ReservationNumber = RandomGenerator.RandomReservationNumber(100, 999, 3);            
+            this.ReservationNumber = RandomGenerator.RandomReservationNumber(100, 999, 3);
+
+            this.Flights = new List<BookFlight>();
 
             foreach (var item in _command.Flights)
             {
-
+                var bookflight = new BookFlight(_bookingRepository, _bookFlightRepository, _flightRepository, _passengeringRepository, item);
+                this.Flights.Add(bookflight);
             }
         }
-
-        private List<DomainValidationMessage> Validate(ICreateReservationCommand command)
-        {
-            List<DomainValidationMessage> messages = new List<DomainValidationMessage>();
-
-            if (string.IsNullOrEmpty(command.Email))
-                messages.Add(new DomainValidationMessage { Level = ValidationLevel.Error, Message = Language.EmailNullEmpty, Property = nameof(this.Email) });
-
-            if (string.IsNullOrEmpty(command.CreditCard))
-                messages.Add(new DomainValidationMessage { Level = ValidationLevel.Error, Message = Language.CreditCardNullEmprty, Property = nameof(this.CreditCard) });
-
-            return messages;
-        }
-
 
         public string Email { get; set; }
         public string CreditCard { get; set; }

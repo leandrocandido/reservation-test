@@ -123,4 +123,10 @@
   <data name="EmailNullEmpty" xml:space="preserve">
     <value>Email could not be empty.</value>
   </data>
+  <data name="FlightNotExists" xml:space="preserve">
+    <value>The Flight {0} does not exists.</value>
+  </data>
+  <data name="FlightNullEmpty" xml:space="preserve">
+    <value>Flight key could not be empty.</value>
+  </data>
 </root>
