@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Ryanair.Reservation.Application.Extensions;
 using Ryanair.Reservation.Application.Profiles;
 using Ryanair.Reservation.Domain.DataAccess.Repositories;
@@ -46,6 +45,10 @@ namespace Ryanair.Reservation
 
             //repositories
             services.AddScoped<IFlightRepository, FlightRepository>();
+            services.AddScoped<IBookingRepository, BookingRepository>();
+            services.AddScoped<IBookFlightRepository, BookFlightRepository>();
+            services.AddScoped<IPassengerRepository, PassengerRepository>();
+
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>

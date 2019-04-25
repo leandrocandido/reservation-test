@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Ryanair.Reservation.Infrastructure.Utils
+namespace Ryanair.Reservation.Domain.Utils
 {
     public static class RandomGenerator
     {

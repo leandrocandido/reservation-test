@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Ryanair.Reservation.Application.DTO;
 using Ryanair.Reservation.Domain.DataAccess.Repositories;
 using Ryanair.Reservation.Domain.DTO;
 using Ryanair.Reservation.Domain.Interfaces;
