@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Ryanair.Reservation.Application.Extensions;
 using Ryanair.Reservation.Application.Profiles;
 using Ryanair.Reservation.Domain.DataAccess.Repositories;
+using Ryanair.Reservation.Domain.Interfaces;
+using Ryanair.Reservation.Domain.Service;
 using Ryanair.Reservation.Infrastructure.DataAccess.Repositories;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -44,12 +46,9 @@ namespace Ryanair.Reservation
             services.AddSingleton(mapper);
 
             //repositories
-            services.AddScoped<IFlightRepository, FlightRepository>();
-            services.AddScoped<IBookingRepository, BookingRepository>();
-            services.AddScoped<IBookFlightRepository, BookFlightRepository>();
-            services.AddScoped<IPassengerRepository, PassengerRepository>();
-
-
+            services.AddScoped<IFlightRepository, FlightRepository>();           
+            services.AddScoped<IReservationRepository, ReservationRepository>();            
+            
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {

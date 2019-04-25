@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BagsNotAllowed" xml:space="preserve">
+    <value>There isn`t enought space for {0} bags in {1} flight.</value>
+  </data>
   <data name="CreditCardNullEmprty" xml:space="preserve">
     <value>Credit Card could not be empty.</value>
   </data>
@@ -128,5 +131,32 @@
   </data>
   <data name="FlightNullEmpty" xml:space="preserve">
     <value>Flight key could not be empty.</value>
+  </data>
+  <data name="MaxBagsPerUser" xml:space="preserve">
+    <value>The user {0} cannot carry more then 5 bags.</value>
+  </data>
+  <data name="MoreThenTwoFlights" xml:space="preserve">
+    <value>There are more then 2 flight in the request.</value>
+  </data>
+  <data name="NoFlightInformation" xml:space="preserve">
+    <value>There ins`t flight information in request.</value>
+  </data>
+  <data name="PaasengerInformationMissing" xml:space="preserve">
+    <value>Passenger Information is missing.</value>
+  </data>
+  <data name="PassengerNameMandatory" xml:space="preserve">
+    <value>Passenger name is mandatory.</value>
+  </data>
+  <data name="SeatInUse" xml:space="preserve">
+    <value>Seat number {0} is already in use for flight {1}.</value>
+  </data>
+  <data name="SeatNumberError" xml:space="preserve">
+    <value>Could not convert {0} to number.</value>
+  </data>
+  <data name="SeatNumberMandatory" xml:space="preserve">
+    <value>The seat number is mandatory.</value>
+  </data>
+  <data name="SeatNumberRange" xml:space="preserve">
+    <value>Seat Number {0} is out of the range.</value>
   </data>
 </root>

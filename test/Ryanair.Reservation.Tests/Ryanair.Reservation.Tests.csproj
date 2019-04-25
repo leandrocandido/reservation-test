@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Ryanair.Reservation.Domain\Ryanair.Reservation.Domain.csproj" />
     <ProjectReference Include="..\..\Ryanair.Reservation.Infrastructure\Ryanair.Reservation.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\Ryanair.Reservation\Ryanair.Reservation.csproj" />
   </ItemGroup>
 
 </Project>

@@ -61,6 +61,15 @@ namespace Ryanair.Reservation.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There isn`t enought space for {0} bags in {1} flight..
+        /// </summary>
+        internal static string BagsNotAllowed {
+            get {
+                return ResourceManager.GetString("BagsNotAllowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Credit Card could not be empty..
         /// </summary>
         internal static string CreditCardNullEmprty {
@@ -93,6 +102,87 @@ namespace Ryanair.Reservation.Domain.Resources {
         internal static string FlightNullEmpty {
             get {
                 return ResourceManager.GetString("FlightNullEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user {0} cannot carry more then 5 bags..
+        /// </summary>
+        internal static string MaxBagsPerUser {
+            get {
+                return ResourceManager.GetString("MaxBagsPerUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are more then 2 flight in the request..
+        /// </summary>
+        internal static string MoreThenTwoFlights {
+            get {
+                return ResourceManager.GetString("MoreThenTwoFlights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There ins`t flight information in request..
+        /// </summary>
+        internal static string NoFlightInformation {
+            get {
+                return ResourceManager.GetString("NoFlightInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passenger Information is missing..
+        /// </summary>
+        internal static string PaasengerInformationMissing {
+            get {
+                return ResourceManager.GetString("PaasengerInformationMissing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passenger name is mandatory..
+        /// </summary>
+        internal static string PassengerNameMandatory {
+            get {
+                return ResourceManager.GetString("PassengerNameMandatory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seat number {0} is already in use for flight {1}..
+        /// </summary>
+        internal static string SeatInUse {
+            get {
+                return ResourceManager.GetString("SeatInUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not convert {0} to number..
+        /// </summary>
+        internal static string SeatNumberError {
+            get {
+                return ResourceManager.GetString("SeatNumberError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The seat number is mandatory..
+        /// </summary>
+        internal static string SeatNumberMandatory {
+            get {
+                return ResourceManager.GetString("SeatNumberMandatory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seat Number {0} is out of the range..
+        /// </summary>
+        internal static string SeatNumberRange {
+            get {
+                return ResourceManager.GetString("SeatNumberRange", resourceCulture);
             }
         }
     }
