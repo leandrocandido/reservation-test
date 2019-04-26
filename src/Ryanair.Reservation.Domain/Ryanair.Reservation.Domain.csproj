@@ -7,4 +7,14 @@
   <ItemGroup>
     <Compile Remove="Class1.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
+    <Folder Include="Entities\FlightAggregate\" />
+    <Folder Include="Entities\ReservationAggregate\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Validation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Entities\FlightAggregate\Passenger.css" />
+  </ItemGroup>
 </Project>
