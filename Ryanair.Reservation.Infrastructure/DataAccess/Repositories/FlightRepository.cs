@@ -7,6 +7,7 @@ namespace Ryanair.Reservation.Infrastructure.DataAccess.Repositories
 {
     public class FlightRepository : RepositoryBase<Flight>, IFlightRepository
     {
+
         public bool FlightExists(string flight)
         {
             var database = FlightDatabase.GetInstance();

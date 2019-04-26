@@ -1,5 +1,6 @@
 ﻿using Ryanair.Reservation.Domain.Commands;
 using Ryanair.Reservation.Domain.DataAccess.Repositories;
+using Ryanair.Reservation.Domain.Interfaces;
 using Ryanair.Reservation.Domain.Service;
 using Ryanair.Reservation.Domain.Utils;
 using System.Collections.Generic;
@@ -11,8 +12,8 @@ namespace Ryanair.Reservation.Domain.Entities
     {
         protected readonly IReservationRepository _reservationRepository;
         protected readonly ICreateReservationCommand _command;
-        protected readonly IReservationRulesValidation _rulesValidation;
-        protected readonly IReservationFieldsValidation _fildsValidation;
+        protected readonly IDomainValidation _rulesValidation;
+        protected readonly IDomainValidation _fildsValidation;
         protected readonly IFlightRepository _flightRepository;
 
         public ReservationEntity() { }
@@ -45,6 +46,7 @@ namespace Ryanair.Reservation.Domain.Entities
 
             List<ReservationEntity> res = new List<ReservationEntity>();            
 
+            //creates a list of reservation for each client in flight
             foreach (var flights in _command.Flights)
             {
                 foreach (var pass in flights.Passengers)
@@ -61,13 +63,19 @@ namespace Ryanair.Reservation.Domain.Entities
                     res.Add(entity);
                 }
             }
+            //save on database
             _reservationRepository.Save(res);
         }
 
+        /// <summary>
+        /// Generates Reservation Number ex AVR102
+        /// </summary>
+        /// <returns>The reservation number.</returns>
         protected string GenerateReservationNumber()
         {
             var reservation = RandomGenerator.RandomReservationNumber(100, 999, 3);
-            
+
+            //verify if rando reservation number is already in use
             while(_reservationRepository.ReservationNumberExists(reservation))
             {
                 reservation = RandomGenerator.RandomReservationNumber(100, 999, 3); ;

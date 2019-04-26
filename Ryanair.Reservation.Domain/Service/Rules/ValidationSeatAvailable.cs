@@ -21,13 +21,20 @@ namespace Ryanair.Reservation.Domain.Service.Rules
             this._reservationRepository = reservationRepository;
         }
 
+        /// <summary>
+        /// Verify is requested seats are available for required flight
+        /// </summary>
+        /// <param name="messages">Messages.</param>
         public void Validate(List<DomainValidationMessage> messages)
         {          
+            //navigate each flight in request
             foreach (var flight in _command?.Flights)
             {
+                //all seats in request
                 var requiredSeats = flight.Passengers.Select(x => x.Seat).ToList();
+                //all reserved seats
                 var usedSeats = _reservationRepository.GetReservedSeatsPerFlight(flight.Key);
-
+                //chec if requested seat is available
                 foreach (var seatNumber in requiredSeats)
                 {
                     if (usedSeats.Contains(seatNumber))
@@ -38,6 +45,7 @@ namespace Ryanair.Reservation.Domain.Service.Rules
                 }
             }
 
+            //got to next validation
             if (this.Next != null)
                 this.Next.Validate(messages);
         }

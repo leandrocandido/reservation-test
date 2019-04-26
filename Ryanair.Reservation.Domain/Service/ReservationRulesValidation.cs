@@ -1,15 +1,13 @@
-﻿using Ryanair.Reservation.Domain.Commands;
+﻿using System.Collections.Generic;
+using Ryanair.Reservation.Domain.Commands;
 using Ryanair.Reservation.Domain.DataAccess.Repositories;
 using Ryanair.Reservation.Domain.Interfaces;
 using Ryanair.Reservation.Domain.Service.Rules;
 using Ryanair.Reservation.Domain.Validation;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Ryanair.Reservation.Domain.Service
 {
-    public class ReservationRulesValidation : IReservationRulesValidation
+    public class ReservationRulesValidation : IDomainValidation
     {
         private readonly IReservationRepository _reservationRepository;
         private readonly ICreateReservationCommand _command;
@@ -25,6 +23,9 @@ namespace Ryanair.Reservation.Domain.Service
             this.SetValidationRules();
         }
 
+        /// <summary>
+        /// Define the Rules used to validate command request fields
+        /// </summary>
         private void SetValidationRules()
         {            
             var bags = new ValidateBagsPerFlight(_reservationRepository, _command);
@@ -47,7 +48,4 @@ namespace Ryanair.Reservation.Domain.Service
             return result;            
         }
     }
-
-    public interface IReservationRulesValidation : IDomainValidation
-    { }
 }

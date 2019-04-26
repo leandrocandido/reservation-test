@@ -9,6 +9,7 @@ namespace Ryanair.Reservation.Domain.Interfaces
         [XmlElement]
         string Error { get; set; }
         [XmlElement]
-        List<DomainValidationMessage> DomainValidationMessages { get; set; }        
+        List<DomainValidationMessage> DomainValidationMessages { get; set; }
+        bool HasContent();   
     }
 }

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Ryanair.Reservation.Infrastructure.DataAccess
 {
+    /// <summary>
+    /// Singleton used to simulate a non normalized reservation table
+    /// </summary>
     public class ReservationDataTable
     {
         private static ReservationDataTable _uniqueInstance = null;

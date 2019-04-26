@@ -32,4 +32,7 @@
     <ProjectReference Include="..\..\Ryanair.Reservation.Infrastructure\Ryanair.Reservation.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Application\Mediator\AbstractRequest.cs" />
+  </ItemGroup>
 </Project>

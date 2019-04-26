@@ -17,6 +17,10 @@ namespace Ryanair.Reservation.Domain.Service.Validation
             _command = command;
         }
 
+        /// <summary>
+        /// Check if Passenger information is valid
+        /// </summary>
+        /// <param name="messages">Messages.</param>
         public void Validate(List<DomainValidationMessage> messages)
         {
             var passengers = _command.Flights.SelectMany(x => x.Passengers).ToList();            

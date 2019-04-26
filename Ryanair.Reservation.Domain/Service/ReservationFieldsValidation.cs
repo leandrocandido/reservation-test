@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Ryanair.Reservation.Domain.Service
 {
-    public class ReservationFieldsValidation : IReservationFieldsValidation
+    public class ReservationFieldsValidation : IDomainValidation
     {        
         private readonly IFlightRepository _flightRepository;     
         private readonly ICreateReservationCommand _command;
@@ -23,8 +23,12 @@ namespace Ryanair.Reservation.Domain.Service
             this.SetValidationRules();
         }
 
+        /// <summary>
+        /// Define the Rules used to validate command request fields
+        /// </summary>
         private void SetValidationRules()
         {
+            //chain of responsabilities used to create all validations
             var bookingfields = new ValidateBookingFields(this._command);
             var bookflight = new ValidateBookFlightFields(this._command,_flightRepository);
             var ticketInformation = new ValidateTicketInformation(this._command);
@@ -42,6 +46,10 @@ namespace Ryanair.Reservation.Domain.Service
             this._validation = bookingfields;
         }
 
+        /// <summary>
+        /// Method used to start all validation in the chain
+        /// </summary>
+        /// <returns><c>true</c>, if command was validated, <c>false</c> otherwise.</returns>
         public bool ValidateCommand()
         {
             var result = false;
@@ -56,7 +64,4 @@ namespace Ryanair.Reservation.Domain.Service
             return result;
         }
     }
-
-    public interface IReservationFieldsValidation : IDomainValidation
-    { }
 }

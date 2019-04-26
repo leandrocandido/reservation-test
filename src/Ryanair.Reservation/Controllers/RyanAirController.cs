@@ -63,7 +63,10 @@ namespace Ryanair.Reservation.Controllers
 
             if (result.DomainValidationMessages?.Count() > 0)
                 return StatusCode(StatusCodes.Status422UnprocessableEntity, result);
-                       
+
+            if (!result.HasContent())
+                return StatusCode(StatusCodes.Status204NoContent, result);
+
             return Ok(result);
         }
 

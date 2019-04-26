@@ -5,6 +5,9 @@ using System.Globalization;
 
 namespace Ryanair.Reservation.Infrastructure.DataAccess
 {
+    /// <summary>
+    /// Singleton used to simulate a non normalized flight table
+    /// </summary>
     public class FlightDatabase
     {
         private static FlightDatabase _uniqueInstance = null;

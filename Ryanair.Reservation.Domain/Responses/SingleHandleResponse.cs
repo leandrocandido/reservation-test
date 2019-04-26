@@ -11,6 +11,11 @@ namespace Ryanair.Reservation.Domain.Responses
         [XmlElement]
         public string Error { get; set; }
         [XmlElement]
-        public List<DomainValidationMessage> DomainValidationMessages { get; set; }        
+        public List<DomainValidationMessage> DomainValidationMessages { get; set; }
+
+        public virtual bool HasContent()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

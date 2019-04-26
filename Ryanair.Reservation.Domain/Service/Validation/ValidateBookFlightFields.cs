@@ -21,6 +21,10 @@ namespace Ryanair.Reservation.Domain.Service.Validation
             _flightRepository = flightRepository;
         }
 
+        /// <summary>
+        /// Check if flight information is consistent
+        /// </summary>
+        /// <param name="messages">Messages.</param>
         public void Validate(List<DomainValidationMessage> messages)
         {
 
@@ -32,7 +36,7 @@ namespace Ryanair.Reservation.Domain.Service.Validation
                 if (!_flightRepository.FlightExists(item.Key) && !string.IsNullOrEmpty(item.Key))
                     messages.Add(new DomainValidationMessage { Level = ValidationLevel.Error, Message = string.Format(Language.FlightNotExists, item.Key), Property = nameof(item.Key) });
             }
-
+            //go to next validation
             if (this.Next != null)
                 this.Next.Validate(messages);
         }

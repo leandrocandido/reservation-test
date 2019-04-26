@@ -19,6 +19,10 @@ namespace Ryanair.Reservation.Domain.Service.Validation
             _command = command;
         }
 
+        /// <summary>
+        /// Check if value in request is a numeric value
+        /// </summary>
+        /// <param name="messages">Messages.</param>
         public void Validate(List<DomainValidationMessage> messages)
         {
             var seats = _command.Flights.SelectMany(x => x.Passengers).Select(x => x.Seat).ToList();

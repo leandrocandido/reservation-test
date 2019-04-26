@@ -24,9 +24,12 @@ namespace Ryanair.Reservation.Application.Mediator.Commands
         }
 
         internal override IHandleResponse HandleIt(CreateReservationCommand request, CancellationToken cancellationToken)
-        {         
+        {   
+            //create and save reservation information.
             var reserv = new ReservationEntity(request, _reservationRepository, _flightRepository);
+            //auto mapper.
             var converted = _mapper.Map<ReservationInfoDto>(reserv);
+            //format to reservation creation response.
             return new ReservationCreationResponse() { Content = converted };                     
         }
     }

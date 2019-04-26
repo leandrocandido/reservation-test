@@ -17,6 +17,10 @@ namespace Ryanair.Reservation.Domain.Service.Validation
 
         public IRulesValidation Next { get; set; }
 
+        /// <summary>
+        /// Check if booking fields is valid
+        /// </summary>
+        /// <param name="messages">Messages.</param>
         public void Validate(List<DomainValidationMessage> messages)
         {
             if (string.IsNullOrEmpty(this._command.Email))

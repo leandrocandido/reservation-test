@@ -7,6 +7,11 @@ namespace Ryanair.Reservation.Application.Extensions
 {
     public static class ReservationExtension
     {
+        /// <summary>
+        /// Converts the list of reservation information to its DTO
+        /// </summary>
+        /// <returns>The reservation.</returns>
+        /// <param name="reservations">Reservations.</param>
         public static BookingDto ConvertReservation(this List<ReservationEntity> reservations )
         {
             return reservations.GroupBy(x => new { x.ReservationNumber, x.Email, x.Key })

@@ -18,6 +18,10 @@ namespace Ryanair.Reservation.Domain.Service.Validation
             _command = command;
         }
 
+        /// <summary>
+        /// check if request has a valid ticket information
+        /// </summary>
+        /// <param name="messages">Messages.</param>
         public void Validate(List<DomainValidationMessage> messages)
         {
             if (_command?.Flights != null && _command?.Flights?.Any() == false)
