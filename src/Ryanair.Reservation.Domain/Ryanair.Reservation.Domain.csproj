@@ -17,6 +17,8 @@
     <Folder Include="Constants\" />
     <Folder Include="Resources\" />
     <Folder Include="Utils\" />
+    <Folder Include="Specifications\" />
+    <Folder Include="Specifications\Flight\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Entities\FlightAggregate\Passenger.css" />

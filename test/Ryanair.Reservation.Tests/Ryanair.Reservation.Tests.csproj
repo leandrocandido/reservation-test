@@ -16,4 +16,9 @@
     <ProjectReference Include="..\..\src\Ryanair.Reservation\Ryanair.Reservation.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Domain\" />
+    <Folder Include="Domain\Entities\" />
+    <Folder Include="Domain\Entities\FlightAggregate\" />
+  </ItemGroup>
 </Project>
