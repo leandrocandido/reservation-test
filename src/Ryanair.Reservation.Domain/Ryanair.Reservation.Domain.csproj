@@ -13,8 +13,23 @@
     <Folder Include="Entities\ReservationAggregate\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Validation\" />
+    <Folder Include="ValueObjects\" />
+    <Folder Include="Constants\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Entities\FlightAggregate\Passenger.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Language.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\Language.Designer.cs">
+      <DependentUpon>Language.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
