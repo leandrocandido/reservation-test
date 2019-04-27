@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -14,6 +14,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Ryanair.Reservation\Ryanair.Reservation.csproj" />
+    <ProjectReference Include="..\..\src\Ryanair.Reservation.Domain\Ryanair.Reservation.Domain.csproj" />
+    <ProjectReference Include="..\..\src\Ryanair.Reservation.Infrastructure\Ryanair.Reservation.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
