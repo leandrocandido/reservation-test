@@ -3,12 +3,12 @@ using System.Linq.Expressions;
 
 namespace Ryanair.Reservation.Domain.Specifications.Flight
 {
-    public sealed class FlightByKeySpec : SpecificationBase<Entities.Flight>
+    public class FlightFlyingToSpec : SpecificationBase<Entities.Flight>
     {
         private readonly Expression<Func<Entities.Flight, bool>> _expression;
-        public FlightByKeySpec(string key)
+        public FlightFlyingToSpec(string destination)
         {
-            _expression = flightByKey => flightByKey.Key == key;
+            _expression = flightFlyingTo => flightFlyingTo.Destination.ToLowerInvariant() == destination.ToLowerInvariant();
         }
 
         public override Expression<Func<Entities.Flight, bool>> ToExpression()

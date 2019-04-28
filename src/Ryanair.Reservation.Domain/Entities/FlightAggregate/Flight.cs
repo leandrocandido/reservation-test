@@ -6,7 +6,7 @@ using Ryanair.Reservation.Domain.Interfaces;
 using Ryanair.Reservation.Domain.Validation;
 using Ryanair.Reservation.Domain.ValueObjects;
 
-namespace Ryanair.Reservation.Domain.Entities.FlightAggregate
+namespace Ryanair.Reservation.Domain.Entities
 {
     public class Flight : IAggregateRoot
     {

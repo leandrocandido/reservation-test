@@ -47,8 +47,8 @@ namespace Ryanair.Reservation
             services.AddSingleton(mapper);
 
             // Adding repositories as singleton because we are using in memory collections.
-            services.AddSingleton<IRepository<Domain.Entities.FlightAggregate.Flight>, FlightRepository>();
-            services.AddSingleton<IRepository<Domain.Entities.ReservationAggregate.Reservation>, ReservationRepository>();
+            services.AddSingleton<IRepository<Domain.Entities.Flight>, FlightRepository>();
+            services.AddSingleton<IRepository<Domain.Entities.Reservation>, ReservationRepository>();
 
             // Domain services.
             services.AddSingleton<IReservationService, ReservationService>();

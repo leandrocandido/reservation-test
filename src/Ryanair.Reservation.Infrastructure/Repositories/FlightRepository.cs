@@ -4,7 +4,7 @@ using System.IO;
 using System.Reflection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using Ryanair.Reservation.Domain.Entities.FlightAggregate;
+using Ryanair.Reservation.Domain.Entities;
 
 namespace Ryanair.Reservation.Infrastructure.Repositories
 {

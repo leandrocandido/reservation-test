@@ -12,12 +12,12 @@ namespace Ryanair.Reservation.Application.Mediator.Commands
     public class CreateReservationCommandHandler : IRequestHandler<CreateReservationCommand, ReservationConfirmationDto>
     {
         private readonly IReservationService _reservationService;
-        private readonly IRepository<Domain.Entities.ReservationAggregate.Reservation> _reservationRepository;
+        private readonly IRepository<Domain.Entities.Reservation> _reservationRepository;
         private readonly IMapper _mapper;
 
         public CreateReservationCommandHandler(
             IReservationService reservationService,
-            IRepository<Domain.Entities.ReservationAggregate.Reservation> reservationRepository,
+            IRepository<Domain.Entities.Reservation> reservationRepository,
             IMapper mapper)
         {
             _reservationService = reservationService;

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Ryanair.Reservation.Domain.Entities.FlightAggregate;
+using Ryanair.Reservation.Domain.Entities;
 using Ryanair.Reservation.Domain.Interfaces;
 using Ryanair.Reservation.Domain.Interfaces.Services;
 using Ryanair.Reservation.Domain.Services;

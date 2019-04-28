@@ -1,4 +1,4 @@
-﻿namespace Ryanair.Reservation.Domain.Entities.FlightAggregate
+﻿namespace Ryanair.Reservation.Domain.Entities
 {
     public sealed class Passenger
     {
@@ -16,6 +16,6 @@
 
         public Flight Flight { get; private set; }
 
-        public ReservationAggregate.Reservation Reservation { get; internal set; }
+        public Reservation Reservation { get; internal set; }
     }
 }

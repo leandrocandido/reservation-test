@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Ryanair.Reservation.Domain.Entities.FlightAggregate;
+using Ryanair.Reservation.Domain.Entities;
 using Ryanair.Reservation.Domain.Interfaces;
 using Ryanair.Reservation.Domain.Specifications.Flight;
 using Ryanair.Reservation.Domain.ValueObjects;
@@ -104,7 +104,7 @@ namespace Ryanair.Reservation.Tests.Domain.Entities.FlightAggregate
         [Fact]
         public void PassengerNoBagsSpace()
         {
-            IRepository<Reservation.Domain.Entities.ReservationAggregate.Reservation> _reservationRepository = new ReservationRepository();
+            IRepository<Reservation.Domain.Entities.Reservation> _reservationRepository = new ReservationRepository();
 
             IRepository<Flight> _flightRepository = new FlightRepository();
             Flight flight = _flightRepository.List(new FlightByKeySpec("Flight00052")).FirstOrDefault();

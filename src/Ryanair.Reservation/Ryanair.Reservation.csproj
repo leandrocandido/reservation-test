@@ -14,6 +14,8 @@
     <Folder Include="DTO\" />
     <Folder Include="Middleware\" />
     <Folder Include="Controllers\" />
+    <Folder Include="Application\Mediator\Queries\Flight\" />
+    <Folder Include="Application\Mediator\Queries\Reservation\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Ryanair.Reservation.Domain.Entities.FlightAggregate;
+using Ryanair.Reservation.Domain.Entities;
 
-namespace Ryanair.Reservation.Domain.Entities.ReservationAggregate
+namespace Ryanair.Reservation.Domain.Entities
 {
     public sealed class ReservationFlight
     {

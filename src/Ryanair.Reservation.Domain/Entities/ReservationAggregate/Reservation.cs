@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Ryanair.Reservation.Domain.Entities.FlightAggregate;
+using Ryanair.Reservation.Domain.Entities;
 using Ryanair.Reservation.Domain.Interfaces;
 using Ryanair.Reservation.Domain.Utils;
 using Ryanair.Reservation.Domain.Validation;
 using Ryanair.Reservation.Domain.ValueObjects;
 
-namespace Ryanair.Reservation.Domain.Entities.ReservationAggregate
+namespace Ryanair.Reservation.Domain.Entities
 {
     public sealed class Reservation : IAggregateRoot
     {

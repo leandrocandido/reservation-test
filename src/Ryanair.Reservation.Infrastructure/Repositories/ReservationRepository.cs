@@ -7,6 +7,6 @@ namespace Ryanair.Reservation.Infrastructure.Repositories
     /// <remarks>
     /// Having separated repositories can help to build a cache layer or add some custom behavior.
     /// </remarks>
-    public class ReservationRepository : RepositoryBase<Domain.Entities.ReservationAggregate.Reservation>
+    public class ReservationRepository : RepositoryBase<Domain.Entities.Reservation>
     { }
 }

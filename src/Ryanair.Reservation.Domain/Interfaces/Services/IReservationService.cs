@@ -5,6 +5,6 @@ namespace Ryanair.Reservation.Domain.Interfaces.Services
 {
     public interface IReservationService
     {
-        Entities.ReservationAggregate.Reservation ConfirmReservation(ReservationData reservationData);
+        Entities.Reservation ConfirmReservation(ReservationData reservationData);
     }
 }

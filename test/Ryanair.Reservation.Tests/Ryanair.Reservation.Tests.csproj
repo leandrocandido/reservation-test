@@ -24,5 +24,10 @@
     <Folder Include="Domain\Entities\FlightAggregate\" />
     <Folder Include="Domain\Entities\ReservationAggregate\" />
     <Folder Include="Domain\Services\" />
+    <Folder Include="Application\" />
+    <Folder Include="Application\Mediator\" />
+    <Folder Include="Application\Mediator\Commands\" />
+    <Folder Include="Application\Mediator\Queries\" />
+    <Folder Include="Application\Mediator\Queries\Flight\" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Ryanair.Reservation.Domain.Entities.FlightAggregate;
+using Ryanair.Reservation.Domain.Entities;
 using Ryanair.Reservation.Domain.Interfaces;
 using Ryanair.Reservation.Domain.Interfaces.Services;
 using Ryanair.Reservation.Domain.Resources;
@@ -23,7 +23,7 @@ namespace Ryanair.Reservation.Domain.Services
             _flightRepository = flightRepository;
         }
 
-        public Domain.Entities.ReservationAggregate.Reservation ConfirmReservation(ReservationData reservationData)
+        public Domain.Entities.Reservation ConfirmReservation(ReservationData reservationData)
         {
             var problems = new List<DomainValidationMessage>();
 
@@ -69,13 +69,13 @@ namespace Ryanair.Reservation.Domain.Services
                 }
             }
 
-            problems.AddRange(Entities.ReservationAggregate.Reservation.CanCreateReservation(reservationData));
+            problems.AddRange(Entities.Reservation.CanCreateReservation(reservationData));
 
             // If there is any problems with data we throw an exception.
             if (problems.Any())
                 throw new DomainValidationException(problems);
 
-            var reservation = Entities.ReservationAggregate.Reservation.CreateReservation(reservationData);
+            var reservation = Entities.Reservation.CreateReservation(reservationData);
 
             // Now we have sure everything is right lets create the reservation.
 

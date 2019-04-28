@@ -10,7 +10,7 @@ namespace Ryanair.Reservation.Tests.Domain.Entities.ReservationAggregate
         public void CandAddReservationOk()
         {
 
-            var problems = Ryanair.Reservation.Domain.Entities.ReservationAggregate.Reservation.CanCreateReservation(GetReservationData());
+            var problems = Ryanair.Reservation.Domain.Entities.Reservation.CanCreateReservation(GetReservationData());
 
             Assert.Empty(problems);
         }
@@ -20,7 +20,7 @@ namespace Ryanair.Reservation.Tests.Domain.Entities.ReservationAggregate
         {
             var reservationData = GetReservationData();
             reservationData.Email = null;
-            var problems = Ryanair.Reservation.Domain.Entities.ReservationAggregate.Reservation.CanCreateReservation(reservationData);
+            var problems = Ryanair.Reservation.Domain.Entities.Reservation.CanCreateReservation(reservationData);
 
             Assert.NotEmpty(problems);
         }
@@ -31,7 +31,7 @@ namespace Ryanair.Reservation.Tests.Domain.Entities.ReservationAggregate
 
             var reservationData = GetReservationData();
             reservationData.CreditCard = null;
-            var problems = Ryanair.Reservation.Domain.Entities.ReservationAggregate.Reservation.CanCreateReservation(reservationData);
+            var problems = Ryanair.Reservation.Domain.Entities.Reservation.CanCreateReservation(reservationData);
 
             Assert.NotEmpty(problems);
         }
