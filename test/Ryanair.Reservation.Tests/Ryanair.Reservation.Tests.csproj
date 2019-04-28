@@ -22,5 +22,11 @@
   <ItemGroup>
     <Compile Remove="ReservationFieldsValidationTest.cs" />
     <Compile Remove="RulesValidationTest.cs" />
+    <Compile Remove="Domain\Services\ReservationServiceTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\" />
+    <Folder Include="Domain\Entities\" />
+    <Folder Include="Domain\Entities\FlightAggregate\" />
   </ItemGroup>
 </Project>
