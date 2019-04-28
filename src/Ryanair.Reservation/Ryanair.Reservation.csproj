@@ -13,6 +13,7 @@
     <Folder Include="Application\Profiles\" />
     <Folder Include="DTO\" />
     <Folder Include="Middleware\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
   <ItemGroup>
