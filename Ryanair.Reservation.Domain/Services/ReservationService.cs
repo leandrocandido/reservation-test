@@ -1,6 +1,7 @@
 ﻿using Ryanair.Reservation.Domain.Entities;
 using Ryanair.Reservation.Domain.Interfaces;
 using Ryanair.Reservation.Domain.Interfaces.Services;
+using Ryanair.Reservation.Domain.Resources;
 using Ryanair.Reservation.Domain.Specifications;
 using Ryanair.Reservation.Domain.Validation;
 using Ryanair.Reservation.Domain.ValueObjects;
@@ -24,6 +25,15 @@ namespace Ryanair.Reservation.Domain.Services
         public Entities.Reservation ConfirmReservation(ReservationData reservationData)
         {
             var problems = new List<DomainValidationMessage>();
+
+
+            if (! (reservationData?.Flights.Any()).Value )
+                problems.Add(new DomainValidationMessage { 
+                    Level = ValidationLevel.Error,
+                    Message = Language.NoFlightInformation ,
+                    Property = "Flights"
+                });
+
 
             // First iterate and validate the data to guarantee everithing is valid, and the passengers can be added to both flights.
             // Doing this because we skipped the persistence layer and transactions.
