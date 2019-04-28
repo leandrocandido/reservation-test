@@ -27,12 +27,16 @@ namespace Ryanair.Reservation.Domain.Services
             var problems = new List<DomainValidationMessage>();
 
 
-            if (! (reservationData?.Flights.Any()).Value )
-                problems.Add(new DomainValidationMessage { 
+            if ( (reservationData?.Flights == null) || ( reservationData?.Flights?.Count == 0 ) )
+            {
+                problems.Add(new DomainValidationMessage
+                {
                     Level = ValidationLevel.Error,
-                    Message = Language.NoFlightInformation ,
+                    Message = Language.NoFlightInformation,
                     Property = "Flights"
                 });
+                throw new DomainValidationException(problems);
+            }
 
 
             // First iterate and validate the data to guarantee everithing is valid, and the passengers can be added to both flights.
@@ -43,6 +47,18 @@ namespace Ryanair.Reservation.Domain.Services
             foreach (FlightData fData in reservationData.Flights)
             {
                 Flight flight = _flightRepository.List(new FlightByKeySpec(fData.Key)).FirstOrDefault();
+
+                if (flight == null)
+                {
+                    problems.Add(new DomainValidationMessage
+                    {
+                        Level = ValidationLevel.Error,
+                        Message = Language.FlightNotExists,
+                        Property = "Flights"
+                    });
+                    throw new DomainValidationException(problems);
+                }
+
                 validatedFlights.Add(flight, fData.Passengers);
 
                 // Validate each passenger.
@@ -52,12 +68,15 @@ namespace Ryanair.Reservation.Domain.Services
                 }
             }
 
+            problems.AddRange(Entities.Reservation.CanCreateReservation(reservationData));
+
             // If there is any problems with data we throw an exception.
             if (problems.Any())
                 throw new DomainValidationException(problems);
 
+            var reservation = Entities.Reservation.CreateReservation(reservationData);
+
             // Now we have sure everything is right lets create the reservation.
-            var reservation = new Entities.Reservation(reservationData.Email, reservationData.CreditCard);
 
             // Now we add the passengers to the flight.
             // Using the dictionary we save some roud trips to repository.

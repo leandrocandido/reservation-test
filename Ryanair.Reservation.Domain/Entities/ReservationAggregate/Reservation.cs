@@ -1,28 +1,55 @@
 ﻿using Ryanair.Reservation.Domain.Interfaces;
 using Ryanair.Reservation.Domain.Utils;
+using Ryanair.Reservation.Domain.Validation;
 using Ryanair.Reservation.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Ryanair.Reservation.Domain.Entities
 {
     public sealed class Reservation : IAggregateRoot
     {
-        public Reservation(string email, string creditCard)
+        private Reservation() { }
+        private Reservation(string email, string creditCard)
         {
             this.Email = email;
             this.CreditCard = creditCard;
             this.ReservationNumber = this.RandomReservationNumber();
         }
 
-        public string CreditCard { get; private set; }
+        public string CreditCard { get; set; }
         public string ReservationNumber { get; set; }
         public string Email { get; set; }
 
         // Using IReadOnlyCollection as a wrapper around a private list, so is protected against "external updates".
         private readonly List<ReservationFlight> _flights = new List<ReservationFlight>();
         public IReadOnlyCollection<ReservationFlight> Flights => _flights.AsReadOnly();
+
+        public static Reservation CreateReservation(ReservationData reservationData)
+        {
+            var problems = CanCreateReservation(reservationData);
+
+             if (problems.Any())
+                 throw new DomainValidationException(problems);
+            
+            return new Reservation(reservationData.Email, reservationData.CreditCard);
+        }
+
+
+        public static IEnumerable<DomainValidationMessage> CanCreateReservation(ReservationData reservationData)
+        {
+            var errors = new List<DomainValidationMessage>();
+            if (string.IsNullOrEmpty(reservationData.Email))
+                errors.Add(new DomainValidationMessage { Level = ValidationLevel.Error, Message = Resources.Language.EmailNullEmpty, Property = nameof(reservationData.Email) });
+                
+            if (string.IsNullOrEmpty(reservationData.CreditCard))
+                errors.Add(new DomainValidationMessage { Level = ValidationLevel.Error, Message = Resources.Language.CreditCardNullEmprty, Property = nameof(reservationData.CreditCard) });
+
+            return errors;
+        }
+
 
         public void AddFlight(Flight flight, IEnumerable<Passenger> passengers)
         {

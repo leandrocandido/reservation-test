@@ -46,38 +46,43 @@ namespace Ryanair.Reservation.Domain.Entities
         {
             var errors = new List<DomainValidationMessage>();
             if (string.IsNullOrEmpty(passengerData.Name))
-                errors.Add(new DomainValidationMessage { Level = ValidationLevel.Error, Message = Resources.Language.PassengerNameRequired });
+                errors.Add(new DomainValidationMessage { Level = ValidationLevel.Error, Message = Resources.Language.PassengerNameRequired, Property = nameof(passengerData.Name) });
 
             if (string.IsNullOrEmpty(passengerData.Seat))
-                errors.Add(new DomainValidationMessage { Level = ValidationLevel.Error, Message = Resources.Language.SeatNumberMandatory });
+                errors.Add(new DomainValidationMessage { Level = ValidationLevel.Error, Message = Resources.Language.SeatNumberMandatory, Property = nameof(passengerData.Seat) });
 
             int.TryParse(passengerData.Seat, out int seatNumber);
             if (seatNumber < RyanairConstants.INITIAL_SEAT || seatNumber > RyanairConstants.FINAL_SEAT)
                 errors.Add(new DomainValidationMessage
                 {
                     Level = ValidationLevel.Error,
-                    Message = string.Format(Resources.Language.InvalidSeatNumber, passengerData.Seat)
+                    Message = string.Format(Resources.Language.InvalidSeatNumber, passengerData.Seat),
+                    Property = nameof(passengerData.Seat)
                 });
 
             if (this.IsSeatFree(passengerData.Seat))
                 errors.Add(new DomainValidationMessage
                 {
                     Level = ValidationLevel.Error,
-                    Message = string.Format(Resources.Language.SeatInUse, passengerData.Seat, this.Key)
+                    Message = string.Format(Resources.Language.SeatInUse, passengerData.Seat, this.Key),
+                    Property = nameof(passengerData.Seat)
                 });
 
             if (passengerData.Bags > RyanairConstants.MAX_BAGS_PASSENGER)
                 errors.Add(new DomainValidationMessage
                 {
                     Level = ValidationLevel.Error,
-                    Message = string.Format(Resources.Language.MaxBagsPerUser, passengerData.Name)
+                    Message = string.Format(Resources.Language.MaxBagsPerUser, passengerData.Name),
+                    Property = nameof(passengerData.Name)
+
                 });
 
             if (!this.HasBaggageSpace(passengerData.Bags))
                 errors.Add(new DomainValidationMessage
                 {
                     Level = ValidationLevel.Error,
-                    Message = string.Format(Resources.Language.ThereIsNoSpaceForBags, passengerData.Bags, this.Key)
+                    Message = string.Format(Resources.Language.ThereIsNoSpaceForBags, passengerData.Bags, this.Key),
+                    Property = nameof(passengerData.Bags)
                 });
 
             return errors;

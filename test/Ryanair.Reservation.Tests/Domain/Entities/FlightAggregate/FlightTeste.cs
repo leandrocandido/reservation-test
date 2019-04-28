@@ -79,6 +79,43 @@ namespace Ryanair.Reservation.Tests.Domain.Entities.FlightAggregate
             Assert.NotEmpty(result);
         }
 
+        [Fact]
+        public void PassengerSeatIsInUse()
+        {
+            IRepository<Flight> _flightRepository = new FlightRepository();
+            Flight flight = _flightRepository.List(new FlightByKeySpec("Flight00052")).FirstOrDefault();
+
+            var passenger = GetPassengerData();
+            flight.AddPassenger(passenger);
+
+            var result = flight.CanAddPassenger(passenger);
+
+            Assert.NotEmpty(result);
+        }
+
+
+        [Fact]
+        public void PassengerNoBagsSpace()
+        {
+            IRepository<Reservation.Domain.Entities.Reservation> _reservationRepository = new ReservationRepository();
+
+            IRepository<Flight> _flightRepository = new FlightRepository();
+            Flight flight = _flightRepository.List(new FlightByKeySpec("Flight00052")).FirstOrDefault();
+
+            var passenger = GetPassengerData();
+
+            passenger.Bags = 49;
+
+            flight.AddPassenger(passenger);
+
+            passenger.Bags = 2;
+            passenger.Seat = "28";
+            var result = flight.CanAddPassenger(passenger);
+
+            Assert.NotEmpty(result);
+        }
+
+
         private PassengerData GetPassengerData()
         {
             return new PassengerData
@@ -88,54 +125,5 @@ namespace Ryanair.Reservation.Tests.Domain.Entities.FlightAggregate
                 Seat = "27"
             };
         }
-
-
-        //private ReservationData GetEntityValidEntity()
-        //{
-        //    return new ReservationData()
-        //    {
-        //        Email = "contact@contact.com",
-        //        CreditCard = "0123456789012345",
-        //        Flights = new List<FlightData>()
-        //        {
-        //            new FlightData
-        //            {
-        //                Key = "Flight00052",
-        //                Passengers = new List<PassengerData>()
-        //                {
-        //                    new PassengerData
-        //                    {
-        //                        Name = "Robert Plant",
-        //                        Bags = 2,
-        //                        Seat = "27"
-        //                    },
-        //                    new PassengerData
-        //                    {
-        //                        Name = "Ozzy Osbourne",
-        //                        Bags = 0,
-        //                        Seat = "28"
-        //                    }
-        //                }
-        //            },
-        //            new FlightData
-        //            {
-        //                Key = "Flight00103",
-        //                Passengers = new List<PassengerData>()
-        //                {
-        //                    new PassengerData
-        //                    {
-        //                        Name = "Robert Plant",
-        //                        Bags = 2,
-        //                        Seat = "41"
-        //                    },
-        //                    new PassengerData
-        //                    {
-        //                        Name = "Ozzy Osbourne",
-        //                        Seat = "40"
-        //                    }
-        //                }
-        //            }
-        //        }
-        //    };
-        }
+    }
 }
