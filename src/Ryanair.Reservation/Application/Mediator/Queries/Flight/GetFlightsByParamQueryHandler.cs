@@ -25,22 +25,22 @@ namespace Ryanair.Reservation.Application.Mediator.Queries.Flight
         public Task<List<FlightDto>> Handle(GetFlightsByParamQuery request, CancellationToken cancellationToken)
         {
             var outboundFlightSpec = new FlightDepartsFromSpec(request.Origin)
-                .And(new FlightHasFreeSeatsSpec(request.Passengers))
-                .And(new FlightFlyingToSpec(request.Destination))
-                .And(new FlightDepartsOnSpec(request.DateOut));
+                .And(new FlightHasFreeSeatsSpec(request.Passengers));
+                //.And(new FlightFlyingToSpec(request.Destination))
+                //.And(new FlightDepartsOnSpec(request.DateOut));
 
             var flightSearch = outboundFlightSpec;
 
             // If it's a round trip, we combine the spec to filter inbound flight.
-            if (request.RoundTrip)
-            {
-                var inboundFlightSpec = new FlightDepartsFromSpec(request.Destination)
-                    .And(new FlightHasFreeSeatsSpec(request.Passengers))
-                    .And(new FlightFlyingToSpec(request.Origin))
-                    .And(new FlightDepartsOnSpec(request.DateIn.Value));
+            //if (request.RoundTrip)
+            //{
+            //    var inboundFlightSpec = new FlightDepartsFromSpec(request.Destination)
+            //        .And(new FlightHasFreeSeatsSpec(request.Passengers))
+            //        .And(new FlightFlyingToSpec(request.Origin))
+            //        .And(new FlightDepartsOnSpec(request.DateIn.Value));
 
-                flightSearch = flightSearch.Or(inboundFlightSpec);
-            }
+            //    flightSearch = flightSearch.Or(inboundFlightSpec);
+            //}
 
             var flights = _flightRepository.List(flightSearch);
 

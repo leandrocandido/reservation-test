@@ -8,15 +8,15 @@ namespace Ryanair.Reservation.Domain.Specifications.Flight
 {
     public sealed class FlightDepartsFromSpec : SpecificationBase<Entities.Flight>
     {
-        private readonly Expression<Func<Entities.Flight, bool>> _expression;
+        private string origin;
         public FlightDepartsFromSpec(string origin)
         {
-            _expression = c => c.Origin == origin;
+            this.origin = origin;
         }
 
         public override Expression<Func<Entities.Flight, bool>> ToExpression()
         {
-            return _expression;
+            return flight => flight.Origin.ToLowerInvariant() == origin.ToLowerInvariant();
         }
     }
 }

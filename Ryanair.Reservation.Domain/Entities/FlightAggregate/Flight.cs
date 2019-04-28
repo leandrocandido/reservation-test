@@ -10,10 +10,10 @@ namespace Ryanair.Reservation.Domain.Entities
 {
     public class Flight : IAggregateRoot
     {
-        public DateTime Time { get; private set; }
-        public string Key { get; private set; }
-        public string Origin { get; private set; }
-        public string Destination { get; private set; }
+        public DateTime Time { get; set; }
+        public string Key { get; set; }
+        public string Origin { get; set; }
+        public string Destination { get; set; }
         
         // Using IReadOnlyCollection as a wrapper around a private list,
         // the only way to add passenger is through AddPassenger method, so is protected against "external updates".
