@@ -5,6 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="InitialState.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="InitialState.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Ryanair.Reservation.Domain\Ryanair.Reservation.Domain.csproj" />
   </ItemGroup>
 
