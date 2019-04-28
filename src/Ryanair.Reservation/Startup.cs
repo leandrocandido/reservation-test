@@ -10,6 +10,7 @@ using Ryanair.Reservation.Domain.Interfaces;
 using Ryanair.Reservation.Domain.Interfaces.Services;
 using Ryanair.Reservation.Domain.Services;
 using Ryanair.Reservation.Infrastructure.Repositories;
+using Ryanair.Reservation.Middleware;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace Ryanair.Reservation
@@ -62,6 +63,8 @@ namespace Ryanair.Reservation
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseUnhandledExceptionMiddleware();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
