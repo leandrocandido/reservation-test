@@ -9,7 +9,10 @@ namespace Ryanair.Reservation.Application.Profiles
         public RyanairProfile()
         {
             CreateMap<Flight, FlightDto>().ReverseMap();
-            CreateMap<ReservationEntity, ReservationInfoDto>().ReverseMap();
+            CreateMap<Domain.Entities.Reservation, ReservationConfirmationDto>().ReverseMap();
+            CreateMap<Domain.Entities.Reservation, ReservationDto>().ReverseMap();
+            CreateMap<Domain.Entities.ReservationFlight, ReservationFlightDto>().ReverseMap();
+            CreateMap<Domain.Entities.Passenger, PassengerDto>().ReverseMap();
         }
     }
 }

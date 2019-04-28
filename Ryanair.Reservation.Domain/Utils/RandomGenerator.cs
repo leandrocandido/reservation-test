@@ -29,12 +29,6 @@ namespace Ryanair.Reservation.Domain.Utils
         }
 
         // Generate a random password    
-        public static string RandomReservationNumber(int min, int max, int stringSize)
-        {
-            StringBuilder builder = new StringBuilder();
-            builder.Append(RandomString(stringSize, false));
-            builder.Append(RandomNumber(min, max));            
-            return builder.ToString();
-        }
+        
     }
 }

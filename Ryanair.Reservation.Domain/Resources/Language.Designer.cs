@@ -61,15 +61,6 @@ namespace Ryanair.Reservation.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There isn`t enought space for {0} bags in {1} flight..
-        /// </summary>
-        internal static string BagsNotAllowed {
-            get {
-                return ResourceManager.GetString("BagsNotAllowed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Credit Card could not be empty..
         /// </summary>
         internal static string CreditCardNullEmprty {
@@ -106,7 +97,16 @@ namespace Ryanair.Reservation.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The user {0} cannot carry more then 5 bags..
+        ///   Looks up a localized string similar to Seat Number {0} is not valid..
+        /// </summary>
+        internal static string InvalidSeatNumber {
+            get {
+                return ResourceManager.GetString("InvalidSeatNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The passenger {0} cannot carry more then 5 bags..
         /// </summary>
         internal static string MaxBagsPerUser {
             get {
@@ -142,11 +142,11 @@ namespace Ryanair.Reservation.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Passenger name is mandatory..
+        ///   Looks up a localized string similar to Passenger name is required..
         /// </summary>
-        internal static string PassengerNameMandatory {
+        internal static string PassengerNameRequired {
             get {
-                return ResourceManager.GetString("PassengerNameMandatory", resourceCulture);
+                return ResourceManager.GetString("PassengerNameRequired", resourceCulture);
             }
         }
         
@@ -178,11 +178,11 @@ namespace Ryanair.Reservation.Domain.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Seat Number {0} is out of the range..
+        ///   Looks up a localized string similar to There isn`t enought space for {0} bags in {1} flight..
         /// </summary>
-        internal static string SeatNumberRange {
+        internal static string ThereIsNoSpaceForBags {
             get {
-                return ResourceManager.GetString("SeatNumberRange", resourceCulture);
+                return ResourceManager.GetString("ThereIsNoSpaceForBags", resourceCulture);
             }
         }
     }

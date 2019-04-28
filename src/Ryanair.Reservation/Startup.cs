@@ -4,12 +4,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Ryanair.Reservation.Application.Extensions;
+using Ryanair.Reservation.Application.Mediator;
 using Ryanair.Reservation.Application.Profiles;
-using Ryanair.Reservation.Domain.DataAccess.Repositories;
 using Ryanair.Reservation.Domain.Interfaces;
-using Ryanair.Reservation.Domain.Service;
-using Ryanair.Reservation.Infrastructure.DataAccess.Repositories;
+using Ryanair.Reservation.Infrastructure.Repositories;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace Ryanair.Reservation
@@ -25,10 +23,10 @@ namespace Ryanair.Reservation
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {           
+        {
             services.AddMvc(options =>
             {
-                options.RespectBrowserAcceptHeader = true;                
+                options.RespectBrowserAcceptHeader = true;
             }).AddXmlSerializerFormatters();
 
             services.AddScoped<IMediator, Mediator>();
@@ -45,20 +43,20 @@ namespace Ryanair.Reservation
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
 
-            //repositories
-            services.AddScoped<IFlightRepository, FlightRepository>();           
-            services.AddScoped<IReservationRepository, ReservationRepository>();            
+            // Adding repositories as singleton because we are using in memory collections.
+            services.AddSingleton<IRepository<Domain.Entities.Flight>, FlightRepository>();
+            services.AddSingleton<IRepository<Domain.Entities.Reservation>, ReservationRepository>();
             
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "Ryanair Reservation", Version = "v1" });             
+                c.SwaggerDoc("v1", new Info { Title = "Ryanair Reservation", Version = "v1" });
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {           
+        {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -70,7 +68,7 @@ namespace Ryanair.Reservation
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ReservationAPI");                
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ReservationAPI");
             });
 
             app.UseMvc();
