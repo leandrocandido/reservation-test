@@ -7,9 +7,9 @@ namespace Ryanair.Reservation.Domain.Validation
     {
         public DomainValidationException(IEnumerable<DomainValidationMessage> messages) : base()
         {
-            this.ValidationError = messages;
+            this.ValidationMessages = messages;
         }
 
-        public IEnumerable<DomainValidationMessage> ValidationError { get; }
+        public IEnumerable<DomainValidationMessage> ValidationMessages { get; }
     }
 }

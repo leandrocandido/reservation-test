@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using Ryanair.Reservation.Domain.DTO;
 using Ryanair.Reservation.Domain.Entities;
+using Ryanair.Reservation.Domain.Validation;
+using Ryanair.Reservation.DTO;
 
 namespace Ryanair.Reservation.Application.Profiles
 {
@@ -13,6 +14,10 @@ namespace Ryanair.Reservation.Application.Profiles
             CreateMap<Domain.Entities.Reservation, ReservationDto>().ReverseMap();
             CreateMap<Domain.Entities.ReservationFlight, ReservationFlightDto>().ReverseMap();
             CreateMap<Domain.Entities.Passenger, PassengerDto>().ReverseMap();
+
+            CreateMap<DomainValidationException, DomainValidationExceptionDto>().ReverseMap();
+            CreateMap<System.Exception, ExceptionDto>().ReverseMap();
+
         }
     }
 }

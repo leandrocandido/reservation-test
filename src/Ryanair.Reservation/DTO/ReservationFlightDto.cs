@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Ryanair.Reservation.Domain.DTO
+namespace Ryanair.Reservation.DTO
 {
     [Serializable]
     public class ReservationFlightDto

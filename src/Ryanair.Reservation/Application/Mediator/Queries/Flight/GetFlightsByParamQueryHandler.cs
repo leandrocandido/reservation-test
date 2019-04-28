@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using Ryanair.Reservation.Domain.DTO;
+using Ryanair.Reservation.DTO;
 using Ryanair.Reservation.Domain.Interfaces;
 using Ryanair.Reservation.Domain.Specifications.Flight;
 using System;
