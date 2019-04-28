@@ -8,15 +8,15 @@ namespace Ryanair.Reservation.Domain.Specifications.Flight
 {
     public class FlightHasFreeSeatsSpec : SpecificationBase<Entities.Flight>
     {
-        private readonly Expression<Func<Entities.Flight, bool>> _expression;
+        private int _numberOfSeats;
         public FlightHasFreeSeatsSpec(int numberOfSeats)
         {
-            _expression = c => c.Passengers.Count <= (50 - numberOfSeats);
+            _numberOfSeats = numberOfSeats;
         }
 
         public override Expression<Func<Entities.Flight, bool>> ToExpression()
         {
-            return _expression;
+            return (flightHasFreeSeats => flightHasFreeSeats.Passengers.Count <= (50 - _numberOfSeats));
         }
     }
 }

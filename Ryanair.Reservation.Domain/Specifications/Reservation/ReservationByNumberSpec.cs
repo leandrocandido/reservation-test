@@ -14,7 +14,7 @@ namespace Ryanair.Reservation.Domain.Specifications.Reservation
         private Expression<Func<Entities.Reservation, bool>> expression;
         public ReservationByNumberSpec(string number)
         {
-            expression = r => r.ReservationNumber == number;
+            expression = reservationByNumber => reservationByNumber.ReservationNumber == number;
         }
 
         public override Expression<Func<Entities.Reservation, bool>> ToExpression()

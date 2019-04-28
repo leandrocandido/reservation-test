@@ -11,7 +11,7 @@ namespace Ryanair.Reservation.Domain.Specifications.Flight
         private readonly Expression<Func<Entities.Flight, bool>> _expression;
         public FlightDepartsOnSpec(DateTime date)
         {
-            _expression = c => c.Time.Date == date.Date;
+            _expression = flightDepartsOn => flightDepartsOn.Time.Date == date.Date;
         }
 
         public override Expression<Func<Entities.Flight, bool>> ToExpression()

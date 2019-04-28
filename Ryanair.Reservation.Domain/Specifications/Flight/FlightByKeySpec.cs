@@ -11,7 +11,7 @@ namespace Ryanair.Reservation.Domain.Specifications
         private readonly Expression<Func<Entities.Flight, bool>> _expression;
         public FlightByKeySpec(string key)
         {
-            _expression = c => c.Key == key;
+            _expression = flightByKey => flightByKey.Key == key;
         }
 
         public override Expression<Func<Entities.Flight, bool>> ToExpression()

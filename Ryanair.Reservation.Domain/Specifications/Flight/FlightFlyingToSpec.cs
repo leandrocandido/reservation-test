@@ -11,9 +11,9 @@ namespace Ryanair.Reservation.Domain.Specifications.Flight
         private readonly Expression<Func<Entities.Flight, bool>> _expression;
         public FlightFlyingToSpec(string destination)
         {
-            _expression = c => c.Destination == destination;
+            _expression = flightFlyingTo => flightFlyingTo.Destination.ToLowerInvariant() == destination.ToLowerInvariant();
         }
-
+        
         public override Expression<Func<Entities.Flight, bool>> ToExpression()
         {
             return _expression;

@@ -16,7 +16,7 @@ namespace Ryanair.Reservation.Domain.Specifications.Flight
 
         public override Expression<Func<Entities.Flight, bool>> ToExpression()
         {
-            return flight => flight.Origin.ToLowerInvariant() == origin.ToLowerInvariant();
+            return flightDepartsFrom => flightDepartsFrom.Origin.ToLowerInvariant() == origin.ToLowerInvariant();
         }
     }
 }
