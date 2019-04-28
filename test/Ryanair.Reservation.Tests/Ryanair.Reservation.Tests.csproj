@@ -19,4 +19,8 @@
     <ProjectReference Include="..\..\src\Ryanair.Reservation\Ryanair.Reservation.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="ReservationFieldsValidationTest.cs" />
+    <Compile Remove="RulesValidationTest.cs" />
+  </ItemGroup>
 </Project>
