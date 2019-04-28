@@ -8,6 +8,6 @@ namespace Ryanair.Reservation.Domain.ValueObjects
     {
         public string Key { get; set; }
 
-        public IEnumerable<PassengerData> Passengers { get; set; }
+        public List<PassengerData> Passengers { get; set; }
     }
 }
