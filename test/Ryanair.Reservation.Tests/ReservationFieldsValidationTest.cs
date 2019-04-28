@@ -1,11 +1,6 @@
 ﻿using Ryanair.Reservation.Application.Mediator.Commands;
-using Ryanair.Reservation.Domain.Commands;
-using Ryanair.Reservation.Domain.DataAccess.Repositories;
-using Ryanair.Reservation.Domain.Entities;
-using Ryanair.Reservation.Domain.Service;
 using Ryanair.Reservation.Domain.Validation;
-using Ryanair.Reservation.Infrastructure.DataAccess;
-using Ryanair.Reservation.Infrastructure.DataAccess.Repositories;
+using Ryanair.Reservation.Infrastructure.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
@@ -16,8 +11,8 @@ namespace Ryanair.Reservation.Tests
     {
         [Fact]
         public void CreatBookingFailed_Test()
-        {           
-            IFlightRepository _flightRepository = new FlightRepository();            
+        {
+            FlightRepository _flightRepository = new FlightRepository();            
 
             var command = this.GetEntityValidEntity();
 

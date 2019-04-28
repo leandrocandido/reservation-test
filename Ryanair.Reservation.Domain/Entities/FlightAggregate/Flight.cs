@@ -73,7 +73,7 @@ namespace Ryanair.Reservation.Domain.Entities
                     Message = string.Format(Resources.Language.MaxBagsPerUser, passengerData.Name)
                 });
 
-            if (this.HasBaggageSpace(passengerData.Bags))
+            if (!this.HasBaggageSpace(passengerData.Bags))
                 errors.Add(new DomainValidationMessage
                 {
                     Level = ValidationLevel.Error,

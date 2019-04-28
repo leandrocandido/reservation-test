@@ -1,5 +1,5 @@
 ﻿using Ryanair.Reservation.Application.Mediator.Commands;
-using Ryanair.Reservation.Domain.Commands;
+using Ryanair.Reservation.Domain.
 using Ryanair.Reservation.Domain.DataAccess.Repositories;
 using Ryanair.Reservation.Domain.Entities;
 using Ryanair.Reservation.Domain.Service;
